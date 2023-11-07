@@ -159,7 +159,9 @@
       <div class="div20 project-links">
         <p>
           This project was coded by Shana, this is open-sourced on
-          <a href="">GitHub</a> and hosted on <a href="">Netlify</a>
+          <a target="_blank" href="https://github.com/lycorisRaven">GitHub</a>
+          and hosted on
+          <a target="_blank" href="https://www.netlify.com/">Netlify</a>
         </p>
       </div>
     </div>
@@ -169,26 +171,39 @@
     //OBJECTIVE 3 - get windspeed humidity current temperature weather description and day of the week and display it
     //OBJECTIVE 4 - display appropriate svg for the weather description
     //OBJECTIVE 5 - add display days of the week and the highs and low temperatures of the day
-    //OBJECTIVE 6 - add a function that converts C to F
-    //OBJECTIVE 7 - add your details below
+
+    //OBJECTIVE 7 - add your details below DONE
 
     let temp = document.getElementById("weather-temp");
     let apiKey = "8ca7dd4e61360b90fb66918853670e48";
+
+    //OBJECTIVE 6 - add a function that converts C to F DONE
     let isCelsius = true;
     function CelsiusToFahrenheit(temperatureElement) {
       let temp = parseInt(temperatureElement.innerHTML);
       let fahrenheit = (temp * 9) / 5 + 32;
-      temperatureElement.innerHTML = fahrenheit.toFixed(0);
+      temperatureElement.innerHTML = fahrenheit.toFixed(0) + "°F";
       console.log(fahrenheit);
       return false;
     }
     function FahrenheitToCelsius(temperatureElement) {
       let temp = parseFloat(temperatureElement.innerHTML);
       let celsius = (temp - 32) * (5 / 9);
-      temperatureElement.innerHTML = celsius.toFixed(0); // Ensure two decimal places
+      temperatureElement.innerHTML = celsius.toFixed(0) + "°C"; // Ensure two decimal places
       console.log(celsius);
       return true;
     }
+    temp.addEventListener("click", function () {
+      if (isCelsius == true) {
+        isCelsius = CelsiusToFahrenheit(temp);
+      } else if (isCelsius == false) {
+        isCelsius = FahrenheitToCelsius(temp);
+      } else {
+        console.log("probably not a number");
+      }
+      console.log(isCelsius);
+    });
+
     function getdata() {
       //OBJCETIVE 1 - display city name
       //where city name will be displayed
@@ -197,7 +212,7 @@
       let cityname = document.getElementById("city-search");
       //city name is displayed
       city.innerHTML = cityname.value;
-      let GeolocatorApiUrl = ``;
+      let GeolocatorApiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityname.value}&limit=1&appid=${apikey}`;
       let WeatherAapiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityname.value}&appid=${apiKey}&units=metric`;
       console.log(WeatherAapiUrl);
     }
@@ -207,16 +222,6 @@
       console.log(searchButton);
 
       searchButton.addEventListener("click", getdata);
-      temp.addEventListener("click", function () {
-        if (isCelsius == true) {
-          isCelsius = CelsiusToFahrenheit(temp);
-        } else if (isCelsius == false) {
-          isCelsius = FahrenheitToCelsius(temp);
-        } else {
-          console.log("probably not a number");
-        }
-        console.log(isCelsius);
-      });
     });
   </script>
 </html>

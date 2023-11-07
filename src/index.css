@@ -126,6 +126,9 @@ body {
   font-size: 90px;
   display: inline;
 }
+.weather-temp:hover {
+  cursor: pointer;
+}
 .measure {
   font-size: 60px;
   font-style: normal;
