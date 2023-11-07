@@ -215,10 +215,10 @@
     });
     function getdata() {
       let cityname = document.getElementById("city-name");
-      let city = document.getElementById("city-search");
+      let search = document.getElementById("city-search");
       console.log(cityname);
-      city = city.value;
-      let WeatherApiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+      displaycity = search.value;
+      let WeatherApiUrl = `https://api.shecodes.io/weather/v1/current?query=${displaycity}&key=${apiKey}`;
       console.log(WeatherApiUrl);
       cityname.innerHTML = city;
       axios.get(WeatherApiUrl).then(function (response) {
@@ -234,6 +234,11 @@
       let searchButton = document.getElementById("city-search-button");
       console.log(searchButton);
       searchButton.addEventListener("click", getdata);
+      search.addEventListener("keypress", function (){
+        if (event.key === "Enter"){
+          getdata();
+        }
+      });
     });
   </script>
 </html>
