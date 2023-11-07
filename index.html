@@ -44,9 +44,7 @@
             d="m462 0 94-107-80-40 116-133h106l-94 107 80 40L568 0H462ZM222 0l94-107-80-40 116-133h106l-94 107 80 40L328 0H222Zm78-320q-91 0-155.5-64.5T80-540q0-83 55-145t136-73q32-57 87.5-89.5T480-880q90 0 156.5 57.5T717-679q69 6 116 57t47 122q0 75-52.5 127.5T700-320H300Zm0-80h400q42 0 71-29t29-71q0-42-29-71t-71-29h-60v-40q0-66-47-113t-113-47q-48 0-87.5 26T333-704l-10 24h-25q-57 2-97.5 42.5T160-540q0 58 41 99t99 41Zm180-200Z"
           />
         </svg>
-        <h2 id="weather-temp" class="weather-temp">
-          20 <em id="measure" class="measure">°C</em>
-        </h2>
+        <h2 id="weather-temp" class="weather-temp">20</h2>
       </div>
       <div class="div19">
         <h1 id="city-name" class="city-name">London</h1>
@@ -174,17 +172,21 @@
     //OBJECTIVE 6 - add a function that converts C to F
     //OBJECTIVE 7 - add your details below
 
-    let temp = getElementById("weather-temp");
+    let temp = document.getElementById("weather-temp");
     let apiKey = "8ca7dd4e61360b90fb66918853670e48";
     let isCelsius = true;
     function CelsiusToFahrenheit(temperatureElement) {
-      let temp = temperatureElement.value;
-      temperatureElement.innerHTML = temp * (9 / 5) + 32;
+      let temp = parseInt(temperatureElement.innerHTML);
+      let fahrenheit = (temp * 9) / 5 + 32;
+      temperatureElement.innerHTML = fahrenheit.toFixed(0);
+      console.log(fahrenheit);
       return false;
     }
     function FahrenheitToCelsius(temperatureElement) {
-      let temp = temperatureElement.value;
-      temperatureElement.innerHTML = (temp - 32) * (5 / 9);
+      let temp = parseFloat(temperatureElement.innerHTML);
+      let celsius = (temp - 32) * (5 / 9);
+      temperatureElement.innerHTML = celsius.toFixed(0); // Ensure two decimal places
+      console.log(celsius);
       return true;
     }
     function getdata() {
@@ -195,9 +197,9 @@
       let cityname = document.getElementById("city-search");
       //city name is displayed
       city.innerHTML = cityname.value;
-
-      let apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-      console.log(apiurl);
+      let GeolocatorApiUrl = ``;
+      let WeatherAapiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityname.value}&appid=${apiKey}&units=metric`;
+      console.log(WeatherAapiUrl);
     }
 
     document.addEventListener("DOMContentLoaded", function () {
@@ -207,12 +209,13 @@
       searchButton.addEventListener("click", getdata);
       temp.addEventListener("click", function () {
         if (isCelsius == true) {
-          temp = CelsiusToFahrenheit(temp);
+          isCelsius = CelsiusToFahrenheit(temp);
         } else if (isCelsius == false) {
-          temp = CelsiusToFahrenheit(temp);
+          isCelsius = FahrenheitToCelsius(temp);
         } else {
           console.log("probably not a number");
         }
+        console.log(isCelsius);
       });
     });
   </script>
