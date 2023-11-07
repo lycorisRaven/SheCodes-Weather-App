@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="src/index.css" />
     <script src="src/index.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <!--icons-->
     <link
@@ -17,10 +18,17 @@
     <div class="parent">
       <!--section1-->
       <div class="div17">
-        <input class="city-search" type="search" placeholder="Enter city" />
+        <input
+          id="city-search"
+          class="city-search"
+          type="search"
+          placeholder="Enter city"
+        />
       </div>
       <div class="div18">
-        <button class="city-search-button">search</button>
+        <button id="city-search-button" class="city-search-button">
+          search
+        </button>
       </div>
 
       <!--section2-->
@@ -36,13 +44,17 @@
             d="m462 0 94-107-80-40 116-133h106l-94 107 80 40L568 0H462ZM222 0l94-107-80-40 116-133h106l-94 107 80 40L328 0H222Zm78-320q-91 0-155.5-64.5T80-540q0-83 55-145t136-73q32-57 87.5-89.5T480-880q90 0 156.5 57.5T717-679q69 6 116 57t47 122q0 75-52.5 127.5T700-320H300Zm0-80h400q42 0 71-29t29-71q0-42-29-71t-71-29h-60v-40q0-66-47-113t-113-47q-48 0-87.5 26T333-704l-10 24h-25q-57 2-97.5 42.5T160-540q0 58 41 99t99 41Zm180-200Z"
           />
         </svg>
-        <h2 class="weather-temp">20 <em class="celsius">°C</em></h2>
+        <h2 id="weather-temp" class="weather-temp">
+          20 <em id="measure" class="measure">°C</em>
+        </h2>
       </div>
       <div class="div19">
         <h1 id="city-name" class="city-name">London</h1>
         <p class="city-weather-data">
-          <em>Sunday</em> <em>7:33</em>, <em>broken clouds</em> <br />
-          Humidity: <em>91%</em> , Wind: <em>5.14km/h</em>
+          <em id="data day0">Sunday</em> <em id="data currentTime">7:33</em>,
+          <em class="data desc">broken clouds</em> <br />
+          Humidity: <em class="data humidity">91%</em> , Wind:
+          <em class="data windspeed">5.14km/h</em>
         </p>
       </div>
 
@@ -154,4 +166,54 @@
       </div>
     </div>
   </body>
+  <script>
+    //OBJECTIVE 2 - get api data for the current day and the next 5 days
+    //OBJECTIVE 3 - get windspeed humidity current temperature weather description and day of the week and display it
+    //OBJECTIVE 4 - display appropriate svg for the weather description
+    //OBJECTIVE 5 - add display days of the week and the highs and low temperatures of the day
+    //OBJECTIVE 6 - add a function that converts C to F
+    //OBJECTIVE 7 - add your details below
+
+    let temp = getElementById("weather-temp");
+    let apiKey = "8ca7dd4e61360b90fb66918853670e48";
+    let isCelsius = true;
+    function CelsiusToFahrenheit(temperatureElement) {
+      let temp = temperatureElement.value;
+      temperatureElement.innerHTML = temp * (9 / 5) + 32;
+      return false;
+    }
+    function FahrenheitToCelsius(temperatureElement) {
+      let temp = temperatureElement.value;
+      temperatureElement.innerHTML = (temp - 32) * (5 / 9);
+      return true;
+    }
+    function getdata() {
+      //OBJCETIVE 1 - display city name
+      //where city name will be displayed
+      let city = document.getElementById("city-name");
+      //gathering the city name inputted by the used to be displayed
+      let cityname = document.getElementById("city-search");
+      //city name is displayed
+      city.innerHTML = cityname.value;
+
+      let apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+      console.log(apiurl);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      let searchButton = document.getElementById("city-search-button");
+      console.log(searchButton);
+
+      searchButton.addEventListener("click", getdata);
+      temp.addEventListener("click", function () {
+        if (isCelsius == true) {
+          temp = CelsiusToFahrenheit(temp);
+        } else if (isCelsius == false) {
+          temp = CelsiusToFahrenheit(temp);
+        } else {
+          console.log("probably not a number");
+        }
+      });
+    });
+  </script>
 </html>
