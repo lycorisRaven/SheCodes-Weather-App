@@ -44,13 +44,14 @@
             d="m462 0 94-107-80-40 116-133h106l-94 107 80 40L568 0H462ZM222 0l94-107-80-40 116-133h106l-94 107 80 40L328 0H222Zm78-320q-91 0-155.5-64.5T80-540q0-83 55-145t136-73q32-57 87.5-89.5T480-880q90 0 156.5 57.5T717-679q69 6 116 57t47 122q0 75-52.5 127.5T700-320H300Zm0-80h400q42 0 71-29t29-71q0-42-29-71t-71-29h-60v-40q0-66-47-113t-113-47q-48 0-87.5 26T333-704l-10 24h-25q-57 2-97.5 42.5T160-540q0 58 41 99t99 41Zm180-200Z"
           />
         </svg>
-        <h2 id="weather-temp" class="weather-temp">20</h2>
+        <h2 id="weather-temp" class="weather-temp">0°C</h2>
       </div>
       <div class="div19">
-        <h1 id="city-name" class="city-name">London</h1>
+        <h1 id="city-name" class="city-name">Uknown</h1>
         <p class="city-weather-data">
-          <em id="data day0">Sunday</em> <em id="data currentTime">7:33</em>,
-          <em class="data desc">broken clouds</em> <br />
+          <em id="data day0">friday night</em>
+          <em id="data currentTime">1:11</em>,
+          <em class="data desc">starry night</em> <br />
           Humidity: <em class="data humidity">91%</em> , Wind:
           <em class="data windspeed">5.14km/h</em>
         </p>
@@ -171,13 +172,22 @@
     //OBJECTIVE 3 - get windspeed humidity current temperature weather description and day of the week and display it
     //OBJECTIVE 4 - display appropriate svg for the weather description
     //OBJECTIVE 5 - add display days of the week and the highs and low temperatures of the day
-
-    //OBJECTIVE 7 - add your details below DONE
-
-    let temp = document.getElementById("weather-temp");
-    let apiKey = "8ca7dd4e61360b90fb66918853670e48";
-
     //OBJECTIVE 6 - add a function that converts C to F DONE
+    //OBJECTIVE 7 - add your details below DONE
+    let day = document.getElementById("data day0");
+    let currentTime = document.getElementById("data currentTime");
+    let weatherDescription = document.querySelector(".data.desc");
+    let humidity = document.querySelector(".data.humidity");
+    let windSpeed = document.querySelector(".data.windspeed");
+    let temp = document.getElementById("weather-temp");
+    let time = new Date().toLocaleTimeString("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
+    console.log(time, temp, windSpeed, humidity);
+    let apiKey = "1o419f07a1973f4ft3d5bd2920f1a86e";
+
     let isCelsius = true;
     function CelsiusToFahrenheit(temperatureElement) {
       let temp = parseInt(temperatureElement.innerHTML);
@@ -203,24 +213,26 @@
       }
       console.log(isCelsius);
     });
-
     function getdata() {
-      //OBJCETIVE 1 - display city name
-      //where city name will be displayed
-      let city = document.getElementById("city-name");
-      //gathering the city name inputted by the used to be displayed
-      let cityname = document.getElementById("city-search");
-      //city name is displayed
-      city.innerHTML = cityname.value;
-      let GeolocatorApiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityname.value}&limit=1&appid=${apikey}`;
-      let WeatherAapiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityname.value}&appid=${apiKey}&units=metric`;
-      console.log(WeatherAapiUrl);
+      let cityname = document.getElementById("city-name");
+      let city = document.getElementById("city-search");
+      console.log(cityname);
+      city = city.value;
+      let WeatherApiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+      console.log(WeatherApiUrl);
+      cityname.innerHTML = city;
+      axios.get(WeatherApiUrl).then(function (response) {
+        day.innerHTML = "Tuesday";
+        time.innerHTML = time;
+        weatherDescription.innerHTML = response.data.condition.description;
+        humidity.innerHTML = `${response.data.temperature.humidity}%`;
+        windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
+        temp.innerHTML = `${Math.round(response.data.temperature.current)}°C`;
+      });
     }
-
     document.addEventListener("DOMContentLoaded", function () {
       let searchButton = document.getElementById("city-search-button");
       console.log(searchButton);
-
       searchButton.addEventListener("click", getdata);
     });
   </script>
