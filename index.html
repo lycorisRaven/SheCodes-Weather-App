@@ -2,114 +2,85 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link href="src/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="src/index.css" />
+    <script src="src/index.js"></script>
   </head>
   <body>
-    <div class="container">
-      <div class="page">
-        <div class="row">
-          <div class="col section1">
-            <div class="search-bar">
-              <input id="search" class="search" type="search" />
-              <input id="search-submit" class="submit" type="submit" />
-            </div>
-            <div class="current-info">
-              <p id="current-city" class="current-city">London</p>
-              <p id="current-temp" class="current-temperature">20°C</p>
-              <p id="current-day" class="current-day">Monday</p>
-              <p id="current-weather" class="current-weather">Partly Cloudy</p>
-              <p id="current-humidity" class="current-humidity">
-                Humidity: 60%
-              </p>
-              <p id="current-wind" class="current-wind">Wind: 5 km/h</p>
-            </div>
-          </div>
-          <div class="col section2">
-            <div class="city-buttons">
-              <button class="city-btn">City 1</button>
-              <button class="city-btn">City 2</button> <br />
-              <button class="city-btn">City 3</button>
-              <button class="city-btn">City 4</button>
-            </div>
-            <div class="alternative-forecasts">
-              <button class="alternative-forecast">
-                <p class="day-of-the-week">Tue</p>
-                <p class="temperature">10°C</p>
-              </button>
-              <button class="alternative-forecast">
-                <p class="day-of-the-week">Wed</p>
-                <p class="temperature">10°C</p>
-              </button>
-              <button class="alternative-forecast">
-                <p class="day-of-the-week">Thu</p>
-                <p class="temperature">10°C</p>
-              </button>
-              <button class="alternative-forecast">
-                <p class="day-of-the-week">Fri</p>
-                <p class="temperature">10°C</p>
-              </button>
-              <button class="alternative-forecast">
-                <p class="day-of-the-week">Sat</p>
-                <p class="temperature">10°C</p>
-              </button>
-            </div>
-          </div>
-        </div>
+    <div class="parent">
+      <!--section1-->
+      <div class="div17">
+        <input class="city-search" type="search" placeholder="Enter city" />
+      </div>
+      <div class="div18">
+        <button class="city-search-button">search</button>
+      </div>
+
+      <!--section2-->
+      <div class="div16">
+        <img
+          id="weather-icon0"
+          class="today-icon"
+          src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.veryicon.com%2Ficons%2Fmiscellaneous%2Ftest-6%2Fweather-91.html&psig=AOvVaw3fa5FAuZ--DPO-2EkuVZvY&ust=1699394765959000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJD7-vuwsIIDFQAAAAAdAAAAABAJ"
+          alt="icon"
+        />
+        <h2 class="weather-temp">20 oC</h2>
+      </div>
+      <div class="div19 city-weather-data">
+        <h1 id="city-name" class="city-name">London</h1>
+        <p>
+          <em>Sunday</em> <em>7:33</em>, <em>broken clouds</em> <br />
+          Humidity: <em>91%</em> , Wind: <em>5.14km/h</em>
+        </p>
+      </div>
+
+      <!--section3-->
+      <div id="weather-icon1" class="div6 weather-icon">i</div>
+      <div id="weather-icon2" class="div7 weather-icon">i</div>
+      <div id="weather-icon3" class="div8 weather-icon">i</div>
+      <div id="weather-icon4" class="div9 weather-icon">i</div>
+      <div id="weather-icon5" class="div10 weather-icon">i</div>
+
+      <div class="div11">
+        <h3 class="dayOftheweek">Monday</h3>
+      </div>
+      <div class="div12">
+        <h3 class="dayOftheweek">Tuesday</h3>
+      </div>
+      <div class="div13">
+        <h3 class="dayOftheweek">Wednesday</h3>
+      </div>
+      <div class="div14">
+        <h3 class="dayOftheweek">thursday</h3>
+      </div>
+      <div class="div15">
+        <h3 class="dayOftheweek">Friday</h3>
+      </div>
+
+      <div class="div1">
+        <p id="high-low1" class="high-low">11 | 77</p>
+      </div>
+      <div class="div2">
+        <p id="high-low2" class="high-low">11 | 77</p>
+      </div>
+      <div class="div3">
+        <p id="high-low3" class="high-low">11 | 77</p>
+      </div>
+      <div class="div4">
+        <p id="high-low4" class="high-low">11 | 77</p>
+      </div>
+      <div class="div5">
+        <p id="high-low5" class="high-low">11 | 77</p>
+      </div>
+
+      <!--section4-->
+      <div class="div20 project-links">
+        <p>
+          This project was coded by Shana, this is open-sourced on
+          <a href="">GitHub</a> and hosted on <a href="">Netlify</a>
+        </p>
       </div>
     </div>
-    <script>
-      const currentCity = document.querySelector("#current-city");
-      const currentTemp = document.querySelector("#current-temp");
-      const currentDay = document.querySelector("#current-day");
-      const currentWeather = document.querySelector("#current-weather");
-      const currentHumidity = document.querySelector("#current-humidity");
-      const currentWind = document.querySelector("#current-wind");
-
-      const searchbar = document.querySelector("#search");
-      const searchbutton = document.querySelector("#search-submit");
-
-      const apikey = "8ca7dd4e61360b90fb66918853670e48";
-
-      searchbutton.addEventListener("click", function () {
-        let city = searchbar.value.replace(/\s/g, "");
-
-        let apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
-        axios.get(apiurl).then(function (response) {
-          console.log("working");
-          console.log(response.data);
-
-          currentCity.innerHTML = response.data.name;
-          currentTemp.innerHTML = response.data.main.temp + "°C";
-          currentDay.innerHTML = getDayOfWeek(new Date());
-          currentWeather.innerHTML = response.data.weather[0].description;
-          currentHumidity.innerHTML =
-            "Humidity: " + response.data.main.humidity + "%";
-          currentWind.innerHTML = "Wind: " + response.data.wind.speed + " km/h";
-        });
-      });
-
-      function getDayOfWeek(date) {
-        const daysOfWeek = [
-          "Sunday",
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-        ];
-        return daysOfWeek[date.getDay()];
-      }
-    </script>
   </body>
 </html>

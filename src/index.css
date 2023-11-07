@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+body {
+  margin: 100px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.parent {
+  font-family: "Poppins", sans-serif;
+  padding: 30px;
+  border: solid 1px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(5, 0.5fr);
+  grid-template-rows: 0fr 0.3fr 0.3fr 0.3fr 0fr 0fr 0fr 0fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.div1 {
+  grid-area: 7 / 1 / 8 / 2;
+}
+.div2 {
+  grid-area: 7 / 2 / 8 / 3;
+}
+.div3 {
+  grid-area: 7 / 3 / 8 / 4;
+}
+.div4 {
+  grid-area: 7 / 4 / 8 / 5;
+}
+.div5 {
+  grid-area: 7 / 5 / 8 / 6;
+}
+.div6 {
+  grid-area: 6 / 1 / 7 / 2;
+}
+.div7 {
+  grid-area: 6 / 2 / 7 / 3;
+}
+.div8 {
+  grid-area: 6 / 3 / 7 / 4;
+}
+.div9 {
+  grid-area: 6 / 4 / 7 / 5;
+}
+.div10 {
+  grid-area: 6 / 5 / 7 / 6;
+}
+.div11 {
+  grid-area: 5 / 1 / 6 / 2;
+}
+.div12 {
+  grid-area: 5 / 2 / 6 / 3;
+}
+.div13 {
+  grid-area: 5 / 3 / 6 / 4;
+}
+.div14 {
+  grid-area: 5 / 4 / 6 / 5;
+}
+.div15 {
+  grid-area: 5 / 5 / 6 / 6;
+}
+.div16 {
+  grid-area: 2 / 4 / 5 / 6;
+}
+.div17 {
+  grid-area: 1 / 1 / 2 / 4;
+}
+.div18 {
+  grid-area: 1 / 4 / 2 / 6;
+}
+.div19 {
+  grid-area: 2 / 1 / 5 / 4;
+}
+.div20 {
+  grid-area: 8 / 1 / 9 / 6;
+}
+/* section 1 */
+
+.city-search {
+  font-family: "Poppins", sans-serif;
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 50%;
+  font-size: 20px;
+}
+.city-search-button {
+  font-family: "Poppins", sans-serif;
+  padding: 20px;
+  font-size: 20px;
+}
+
+/* section 2 */
+
+.today-icon {
+}
+.weather-temp {
+  font-size: 140px;
+}
+.city-weather-data {
+}
+/* section 3 */
+
+.weather-icons {
+}
+.dayOftheweek {
+  font-size: 30px;
+}
+.high-low {
+}
+
+/* section 4*/
+.project-links {
+}
