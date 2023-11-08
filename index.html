@@ -7,12 +7,6 @@
     <link rel="stylesheet" href="src/index.css" />
     <script src="src/index.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-    <!--icons-->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
   </head>
   <body>
     <div class="parent">
@@ -33,130 +27,26 @@
 
       <!--section2-->
       <div class="div16">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="24"
-          viewBox="0 -960 960 960"
-          width="24"
+        <img
+          id="today-icon"
           class="today-icon"
-        >
-          <path
-            d="m462 0 94-107-80-40 116-133h106l-94 107 80 40L568 0H462ZM222 0l94-107-80-40 116-133h106l-94 107 80 40L328 0H222Zm78-320q-91 0-155.5-64.5T80-540q0-83 55-145t136-73q32-57 87.5-89.5T480-880q90 0 156.5 57.5T717-679q69 6 116 57t47 122q0 75-52.5 127.5T700-320H300Zm0-80h400q42 0 71-29t29-71q0-42-29-71t-71-29h-60v-40q0-66-47-113t-113-47q-48 0-87.5 26T333-704l-10 24h-25q-57 2-97.5 42.5T160-540q0 58 41 99t99 41Zm180-200Z"
-          />
-        </svg>
+          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png"
+          alt=""
+        />
+
         <h2 id="weather-temp" class="weather-temp">0°C</h2>
       </div>
       <div class="div19">
         <h1 id="city-name" class="city-name">Uknown</h1>
         <p class="city-weather-data">
           <em id="data day0">friday night</em>
-          <em id="data currentTime">1:11</em>,
+          ,
           <em class="data desc">starry night</em> <br />
           Humidity: <em class="data humidity">91%</em> , Wind:
           <em class="data windspeed">5.14km/h</em>
         </p>
       </div>
 
-      <!--section3-->
-      <div id="weather-icon1" class="div6 weather-icon">
-        <svg
-          class="weather-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24"
-          viewBox="0 -960 960 960"
-          width="24"
-        >
-          <path
-            d="M260-200q-21 0-35.5-14.5T210-250q0-21 14.5-35.5T260-300q21 0 35.5 14.5T310-250q0 21-14.5 35.5T260-200ZM380-80q-21 0-35.5-14.5T330-130q0-21 14.5-35.5T380-180q21 0 35.5 14.5T430-130q0 21-14.5 35.5T380-80Zm120-120q-21 0-35.5-14.5T450-250q0-21 14.5-35.5T500-300q21 0 35.5 14.5T550-250q0 21-14.5 35.5T500-200Zm240 0q-21 0-35.5-14.5T690-250q0-21 14.5-35.5T740-300q21 0 35.5 14.5T790-250q0 21-14.5 35.5T740-200ZM620-80q-21 0-35.5-14.5T570-130q0-21 14.5-35.5T620-180q21 0 35.5 14.5T670-130q0 21-14.5 35.5T620-80ZM300-360q-91 0-155.5-64.5T80-580q0-83 55-145t136-73q32-57 87.5-89.5T480-920q90 0 156.5 57.5T717-719q69 6 116 57t47 122q0 75-52.5 127.5T700-360H300Zm0-80h400q42 0 71-29t29-71q0-42-29-71t-71-29h-60v-40q0-66-47-113t-113-47q-48 0-87.5 26T333-744l-10 24h-25q-57 2-97.5 42.5T160-580q0 58 41 99t99 41Zm180-100Z"
-          />
-        </svg>
-      </div>
-      <div id="weather-icon2" class="div7 weather-icon">
-        <svg
-          class="weather-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24"
-          viewBox="0 -960 960 960"
-          width="24"
-        >
-          <path
-            d="M260-200q-21 0-35.5-14.5T210-250q0-21 14.5-35.5T260-300q21 0 35.5 14.5T310-250q0 21-14.5 35.5T260-200ZM380-80q-21 0-35.5-14.5T330-130q0-21 14.5-35.5T380-180q21 0 35.5 14.5T430-130q0 21-14.5 35.5T380-80Zm120-120q-21 0-35.5-14.5T450-250q0-21 14.5-35.5T500-300q21 0 35.5 14.5T550-250q0 21-14.5 35.5T500-200Zm240 0q-21 0-35.5-14.5T690-250q0-21 14.5-35.5T740-300q21 0 35.5 14.5T790-250q0 21-14.5 35.5T740-200ZM620-80q-21 0-35.5-14.5T570-130q0-21 14.5-35.5T620-180q21 0 35.5 14.5T670-130q0 21-14.5 35.5T620-80ZM300-360q-91 0-155.5-64.5T80-580q0-83 55-145t136-73q32-57 87.5-89.5T480-920q90 0 156.5 57.5T717-719q69 6 116 57t47 122q0 75-52.5 127.5T700-360H300Zm0-80h400q42 0 71-29t29-71q0-42-29-71t-71-29h-60v-40q0-66-47-113t-113-47q-48 0-87.5 26T333-744l-10 24h-25q-57 2-97.5 42.5T160-580q0 58 41 99t99 41Zm180-100Z"
-          />
-        </svg>
-      </div>
-      <div id="weather-icon3" class="div8 weather-icon">
-        <svg
-          class="weather-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24"
-          viewBox="0 -960 960 960"
-          width="24"
-        >
-          <path
-            d="M260-200q-21 0-35.5-14.5T210-250q0-21 14.5-35.5T260-300q21 0 35.5 14.5T310-250q0 21-14.5 35.5T260-200ZM380-80q-21 0-35.5-14.5T330-130q0-21 14.5-35.5T380-180q21 0 35.5 14.5T430-130q0 21-14.5 35.5T380-80Zm120-120q-21 0-35.5-14.5T450-250q0-21 14.5-35.5T500-300q21 0 35.5 14.5T550-250q0 21-14.5 35.5T500-200Zm240 0q-21 0-35.5-14.5T690-250q0-21 14.5-35.5T740-300q21 0 35.5 14.5T790-250q0 21-14.5 35.5T740-200ZM620-80q-21 0-35.5-14.5T570-130q0-21 14.5-35.5T620-180q21 0 35.5 14.5T670-130q0 21-14.5 35.5T620-80ZM300-360q-91 0-155.5-64.5T80-580q0-83 55-145t136-73q32-57 87.5-89.5T480-920q90 0 156.5 57.5T717-719q69 6 116 57t47 122q0 75-52.5 127.5T700-360H300Zm0-80h400q42 0 71-29t29-71q0-42-29-71t-71-29h-60v-40q0-66-47-113t-113-47q-48 0-87.5 26T333-744l-10 24h-25q-57 2-97.5 42.5T160-580q0 58 41 99t99 41Zm180-100Z"
-          />
-        </svg>
-      </div>
-      <div id="weather-icon4" class="div9 weather-icon">
-        <svg
-          class="weather-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24"
-          viewBox="0 -960 960 960"
-          width="24"
-        >
-          <path
-            d="M260-200q-21 0-35.5-14.5T210-250q0-21 14.5-35.5T260-300q21 0 35.5 14.5T310-250q0 21-14.5 35.5T260-200ZM380-80q-21 0-35.5-14.5T330-130q0-21 14.5-35.5T380-180q21 0 35.5 14.5T430-130q0 21-14.5 35.5T380-80Zm120-120q-21 0-35.5-14.5T450-250q0-21 14.5-35.5T500-300q21 0 35.5 14.5T550-250q0 21-14.5 35.5T500-200Zm240 0q-21 0-35.5-14.5T690-250q0-21 14.5-35.5T740-300q21 0 35.5 14.5T790-250q0 21-14.5 35.5T740-200ZM620-80q-21 0-35.5-14.5T570-130q0-21 14.5-35.5T620-180q21 0 35.5 14.5T670-130q0 21-14.5 35.5T620-80ZM300-360q-91 0-155.5-64.5T80-580q0-83 55-145t136-73q32-57 87.5-89.5T480-920q90 0 156.5 57.5T717-719q69 6 116 57t47 122q0 75-52.5 127.5T700-360H300Zm0-80h400q42 0 71-29t29-71q0-42-29-71t-71-29h-60v-40q0-66-47-113t-113-47q-48 0-87.5 26T333-744l-10 24h-25q-57 2-97.5 42.5T160-580q0 58 41 99t99 41Zm180-100Z"
-          />
-        </svg>
-      </div>
-      <div id="weather-icon5" class="div10">
-        <svg
-          class="weather-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24"
-          viewBox="0 -960 960 960"
-          width="24"
-        >
-          <path
-            d="M260-200q-21 0-35.5-14.5T210-250q0-21 14.5-35.5T260-300q21 0 35.5 14.5T310-250q0 21-14.5 35.5T260-200ZM380-80q-21 0-35.5-14.5T330-130q0-21 14.5-35.5T380-180q21 0 35.5 14.5T430-130q0 21-14.5 35.5T380-80Zm120-120q-21 0-35.5-14.5T450-250q0-21 14.5-35.5T500-300q21 0 35.5 14.5T550-250q0 21-14.5 35.5T500-200Zm240 0q-21 0-35.5-14.5T690-250q0-21 14.5-35.5T740-300q21 0 35.5 14.5T790-250q0 21-14.5 35.5T740-200ZM620-80q-21 0-35.5-14.5T570-130q0-21 14.5-35.5T620-180q21 0 35.5 14.5T670-130q0 21-14.5 35.5T620-80ZM300-360q-91 0-155.5-64.5T80-580q0-83 55-145t136-73q32-57 87.5-89.5T480-920q90 0 156.5 57.5T717-719q69 6 116 57t47 122q0 75-52.5 127.5T700-360H300Zm0-80h400q42 0 71-29t29-71q0-42-29-71t-71-29h-60v-40q0-66-47-113t-113-47q-48 0-87.5 26T333-744l-10 24h-25q-57 2-97.5 42.5T160-580q0 58 41 99t99 41Zm180-100Z"
-          />
-        </svg>
-      </div>
-
-      <div class="div11">
-        <h3 class="dayOftheweek">Monday</h3>
-      </div>
-      <div class="div12">
-        <h3 class="dayOftheweek">Tuesday</h3>
-      </div>
-      <div class="div13">
-        <h3 class="dayOftheweek">Wednesday</h3>
-      </div>
-      <div class="div14">
-        <h3 class="dayOftheweek">thursday</h3>
-      </div>
-      <div class="div15">
-        <h3 class="dayOftheweek">Friday</h3>
-      </div>
-
-      <div class="div1">
-        <p id="high-low1" class="high-low">11°C | 77°C</p>
-      </div>
-      <div class="div2">
-        <p id="high-low2" class="high-low">11°C | 77°C</p>
-      </div>
-      <div class="div3">
-        <p id="high-low3" class="high-low">11°C | 77°C</p>
-      </div>
-      <div class="div4">
-        <p id="high-low4" class="high-low">11°C | 77°C</p>
-      </div>
-      <div class="div5">
-        <p id="high-low5" class="high-low">11°C | 77°C</p>
-      </div>
-
-      <!--section4-->
       <div class="div20 project-links">
         <p>
           This project was coded by Shana, this is open-sourced on
@@ -176,16 +66,15 @@
     //OBJECTIVE 7 - add your details below DONE
 
     //FOR DISPLAYED DATA
+    const currentDate = new Date();
+    const dayOfWeek = currentDate.toLocaleString("en-US", { weekday: "long" });
     let day = document.getElementById("data day0");
-    let currentTime = document.getElementById("data currentTime");
+
     let weatherDescription = document.querySelector(".data.desc");
     let humidity = document.querySelector(".data.humidity");
     let windSpeed = document.querySelector(".data.windspeed");
     let temp = document.getElementById("weather-temp");
-    let time = new Date().toLocaleTimeString("en-GB", {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
+    let icon = document.getElementById("today-icon");
 
     let apiKey = "1o419f07a1973f4ft3d5bd2920f1a86e";
     let isCelsius = true;
@@ -223,12 +112,14 @@
       let city = document.getElementById("city-search");
       console.log(cityname);
       city = city.value;
-      let WeatherApiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+      let WeatherApiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
       console.log(WeatherApiUrl);
       cityname.innerHTML = city;
+
       axios.get(WeatherApiUrl).then(function (response) {
-        day.innerHTML = "Tuesday";
-        time.innerHTML = time;
+        day.innerHTML = dayOfWeek;
+        icon.src = response.data.condition.icon_url;
+
         weatherDescription.innerHTML = response.data.condition.description;
         humidity.innerHTML = `${response.data.temperature.humidity}%`;
         windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
@@ -240,7 +131,9 @@
       let search = document.getElementById("city-search");
 
       //LISTENS FOR ENTER OR BUTTON PRESS TO UPDATE THE DATA
-      searchButton.addEventListener("click", getdata);
+      searchButton.addEventListener("click", function () {
+        getdata();
+      });
       search.addEventListener("keypress", function (event) {
         if (event.key === "Enter") {
           getdata();
