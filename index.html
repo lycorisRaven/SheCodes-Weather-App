@@ -169,11 +169,13 @@
   </body>
   <script>
     //OBJECTIVE 2 - get api data for the current day and the next 5 days
-    //OBJECTIVE 3 - get windspeed humidity current temperature weather description and day of the week and display it
+    //OBJECTIVE 3 - get windspeed humidity current temperature weather description and day of the week and display it DONE
     //OBJECTIVE 4 - display appropriate svg for the weather description
     //OBJECTIVE 5 - add display days of the week and the highs and low temperatures of the day
     //OBJECTIVE 6 - add a function that converts C to F DONE
     //OBJECTIVE 7 - add your details below DONE
+
+    //FOR DISPLAYED DATA
     let day = document.getElementById("data day0");
     let currentTime = document.getElementById("data currentTime");
     let weatherDescription = document.querySelector(".data.desc");
@@ -185,16 +187,15 @@
       minute: "2-digit",
     });
 
-    console.log(time, temp, windSpeed, humidity);
     let apiKey = "1o419f07a1973f4ft3d5bd2920f1a86e";
-
     let isCelsius = true;
+
     function CelsiusToFahrenheit(temperatureElement) {
-      let temp = parseInt(temperatureElement.innerHTML);
-      let fahrenheit = (temp * 9) / 5 + 32;
-      temperatureElement.innerHTML = fahrenheit.toFixed(0) + "°F";
+      let temp = parseInt(temperatureElement.innerHTML); //CONVERT TO INT
+      let fahrenheit = (temp * 9) / 5 + 32; //CONVERSION FORMULAE
+      temperatureElement.innerHTML = fahrenheit.toFixed(0) + "°F"; // WHOLE NUMBER
       console.log(fahrenheit);
-      return false;
+      return false; //TOGGLE
     }
     function FahrenheitToCelsius(temperatureElement) {
       let temp = parseFloat(temperatureElement.innerHTML);
@@ -203,6 +204,9 @@
       console.log(celsius);
       return true;
     }
+
+    //CELSIUS FAHRENHEIT
+    //WHEN THE TEMPERATURE IS CLICKED IT WILL CONVERT ITSELF
     temp.addEventListener("click", function () {
       if (isCelsius == true) {
         isCelsius = CelsiusToFahrenheit(temp);
@@ -213,6 +217,7 @@
       }
       console.log(isCelsius);
     });
+    //WEATHER DATA IS GATHERED AND DISPLAYED USING API
     function getdata() {
       let cityname = document.getElementById("city-name");
       let search = document.getElementById("city-search");
@@ -234,10 +239,8 @@
       let searchButton = document.getElementById("city-search-button");
       let search = document.getElementById("city-search");
 
-      console.log(searchButton);
-
+      //LISTENS FOR ENTER OR BUTTON PRESS TO UPDATE THE DATA
       searchButton.addEventListener("click", getdata);
-
       search.addEventListener("keypress", function (event) {
         if (event.key === "Enter") {
           getdata();
