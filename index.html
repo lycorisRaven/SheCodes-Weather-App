@@ -220,10 +220,10 @@
     //WEATHER DATA IS GATHERED AND DISPLAYED USING API
     function getdata() {
       let cityname = document.getElementById("city-name");
-      let search = document.getElementById("city-search");
+      let city = document.getElementById("city-search");
       console.log(cityname);
-      displaycity = search.value;
-      let WeatherApiUrl = `https://api.shecodes.io/weather/v1/current?query=${displaycity}&key=${apiKey}`;
+      city = city.value;
+      let WeatherApiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
       console.log(WeatherApiUrl);
       cityname.innerHTML = city;
       axios.get(WeatherApiUrl).then(function (response) {
@@ -246,6 +246,6 @@
           getdata();
         }
       });
-    }); //enter is working
+    });
   </script>
 </html>
